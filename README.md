@@ -1,21 +1,10 @@
 # Anime Collection Manager and Recommendation System
 
-## Project Overview
+## Overview
 
-The Anime Collection Manager and Recommendation System is a web-based Python application developed using Flask, SQLite, HTML, and Jinja2 templates.
+The Anime Collection Manager and Recommendation System is a web-based Python application developed using Flask and SQLite. The application allows users to organize and manage anime collections through a user-friendly interface while providing recommendation and statistical analysis features.
 
-The system allows users to:
-
-- Add anime to a personal collection
-- View all anime entries
-- Search for anime by title
-- Edit existing anime records
-- Delete anime records
-- Receive genre-based recommendations
-- View collection statistics
-- Prevent duplicate anime entries using case-insensitive matching
-
-The project was created for CPS 3320 Python Programming at Kean University.
+This project was developed for CPS 3320 Python Programming at Kean University.
 
 ---
 
@@ -25,7 +14,7 @@ The project was created for CPS 3320 Python Programming at Kean University.
 Provides navigation to all areas of the application.
 
 ### Add Anime
-Allows users to enter:
+Allows users to add anime records including:
 
 - Title
 - Genre
@@ -33,59 +22,56 @@ Allows users to enter:
 - Rating
 - Watch Status
 
-Duplicate anime titles are automatically detected regardless of capitalization.
+### Duplicate Detection
+Prevents duplicate anime titles from being added.
 
-Example:
+Examples:
 
 - Attack on Titan
 - ATTACK ON TITAN
 - attack on titan
 
-These are treated as the same title.
+All are recognized as the same title using case-insensitive matching.
 
 ### View Collection
+Displays all anime currently stored in the database.
 
-Displays all anime stored in the database.
+Users can:
 
-Information shown:
-
-- Title
-- Genre
-- Episodes
-- Rating
-- Watch Status
-
-Users can also edit or delete entries.
+- View anime details
+- Edit entries
+- Delete entries
 
 ### Search Anime
-
-Allows users to search for anime using a title or partial title.
+Allows searching by title or partial title.
 
 ### Recommendation System
-
-Users enter a genre and receive matching anime recommendations from the collection.
+Provides genre-based recommendations.
 
 Example:
 
 Input:
 
+```text
 Fantasy
+```
 
 Output:
 
-- Fairy Tail
-- No Game No Life
+```text
+Fairy Tail
+No Game No Life
+```
 
 ### Statistics Dashboard
+Displays collection statistics including:
 
-Displays:
-
-- Total Anime Count
-- Watching Count
-- Completed Count
-- Paused Count
-- Dropped Count
-- Plan to Watch Count
+- Total Anime
+- Watching
+- Completed
+- Paused
+- Dropped
+- Plan to Watch
 
 ---
 
@@ -97,7 +83,8 @@ Displays:
 - HTML
 - Jinja2
 - GitHub
-- VS Code
+- Visual Studio Code
+- Overleaf (IEEE Report)
 
 ---
 
@@ -108,35 +95,35 @@ Anime_Collection_Manager_Report/
 │
 ├── app.py
 ├── anime.db
+├── README.md
 │
-├── home.html
-├── add_anime.html
-├── anime_list.html
-├── edit_anime.html
-├── search.html
-├── recommend.html
-├── stats.html
-│
-└── README.md
+└── templates/
+    ├── home.html
+    ├── add_anime.html
+    ├── anime_list.html
+    ├── edit_anime.html
+    ├── search.html
+    ├── recommend.html
+    └── stats.html
 ```
 
 ---
 
 ## Installation
 
-### Clone Repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/Bubbulez/Anime_Collection_Manager_Report.git
 ```
 
-### Move into Project Folder
+Move into the project folder:
 
 ```bash
 cd Anime_Collection_Manager_Report
 ```
 
-### Install Flask
+Install Flask:
 
 ```bash
 pip install flask
@@ -146,48 +133,74 @@ pip install flask
 
 ## Running the Application
 
-Run:
+Start the Flask application:
 
 ```bash
 python app.py
 ```
 
-Flask will start the local server.
-
-Open:
+Open a browser and visit:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-in a web browser.
-
 ---
 
-## Database
+## Database Design
 
-SQLite is used to store anime records.
+The application uses SQLite for data storage.
 
-Database file:
+Database File:
 
 ```text
 anime.db
 ```
 
-Main table:
+Main Table:
 
-```sql
+```text
 Anime
 ```
 
 Fields:
 
-- id
-- title
-- genre
-- episodes
-- rating
-- watch_status
+| Field | Description |
+|---------|---------|
+| id | Unique identifier |
+| title | Anime title |
+| genre | Anime genre |
+| episodes | Episode count |
+| rating | User rating |
+| watch_status | Viewing status |
+
+---
+
+## Application Pages
+
+### Home
+Landing page and navigation hub.
+
+### Add Anime
+Create new anime records.
+
+### View Collection
+View all anime stored in the database.
+
+### Edit Anime
+Modify existing anime information.
+
+### Delete Anime
+Remove anime from the collection.
+
+### Search Anime
+Locate anime titles quickly.
+
+### Recommendations
+Receive recommendations based on genre.
+
+### Statistics
+View collection summaries and watch-status counts.
 
 ---
 
@@ -195,36 +208,57 @@ Fields:
 
 The final test database contained:
 
-- 97 Anime Entries
-- 5 Completed
-- 2 Watching
-- 1 Paused
-- 1 Dropped
-- 88 Plan to Watch
+| Metric | Value |
+|----------|----------|
+| Total Anime | 97 |
+| Completed | 5 |
+| Watching | 2 |
+| Paused | 1 |
+| Dropped | 1 |
+| Plan to Watch | 88 |
 
-All CRUD operations were tested successfully.
+Testing verified:
+
+- Create functionality
+- Read functionality
+- Update functionality
+- Delete functionality
+- Search operations
+- Duplicate detection
+- Recommendation system
+- Statistics generation
 
 ---
 
 ## Future Improvements
 
-Potential future enhancements include:
+Potential enhancements include:
 
-- User Accounts
-- Login Authentication
-- Anime API Integration
-- Advanced Recommendation Algorithms
-- Cloud Database Support
-- User Ratings Analytics
+- User login system
+- Multi-user support
+- Anime API integration
+- Cloud database deployment
+- Personalized recommendation algorithms
+- Data visualization dashboards
 
 ---
 
 ## Author
 
-Delali Doe
+**Delali Doe**
 
 Kean University
 
 CPS 3320 Python Programming
 
 Summer 2026
+
+---
+
+## GitHub Repository
+
+Repository:
+
+```text
+https://github.com/Bubbulez/Anime_Collection_Manager_Report
+```

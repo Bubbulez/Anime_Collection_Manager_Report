@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Recommendations</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/add">Add Anime</a> |
+    <a href="/list">View Collection</a> |
+    <a href="/search">Search Anime</a> |
+    <a href="/recommend">Recommendations</a> |
+    <a href="/stats">Statistics</a>
+</nav>
+
+<hr>
+
+<h1>Anime Recommendation System</h1>
+
+<form method="POST">
+    <label>Enter a genre:</label><br>
+    <input type="text" name="genre" required>
+    <button type="submit">Recommend</button>
+</form>
+
+<br>
+
+{% if recommendations %}
+    <h2>Recommended Anime</h2>
+
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Rating</th>
+            <th>Status</th>
+        </tr>
+
+        {% for anime in recommendations %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ anime[1] }}</td>
+            <td>{{ anime[2] }}</td>
+            <td>{{ anime[4] }}</td>
+            <td>{{ anime[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>
+</html>

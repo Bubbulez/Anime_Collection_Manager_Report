@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Anime</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/add">Add Anime</a> |
+    <a href="/list">View Collection</a> |
+    <a href="/search">Search Anime</a> |
+    <a href="/recommend">Recommendations</a> |
+    <a href="/stats">Statistics</a>
+</nav>
+
+<hr>
+
+<h1>Search Anime</h1>
+
+<form method="POST">
+    <label>Search by title:</label><br>
+    <input type="text" name="search_term" required>
+    <button type="submit">Search</button>
+</form>
+
+<br>
+
+{% if results %}
+    <h2>Search Results</h2>
+
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>Title</th>
+            <th>Genre</th>
+            <th>Episodes</th>
+            <th>Rating</th>
+            <th>Status</th>
+        </tr>
+
+        {% for anime in results %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ anime[1] }}</td>
+            <td>{{ anime[2] }}</td>
+            <td>{{ anime[3] }}</td>
+            <td>{{ anime[4] }}</td>
+            <td>{{ anime[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+</body>
+</html>

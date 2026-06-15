@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Anime</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/add">Add Anime</a> |
+    <a href="/list">View Collection</a> |
+    <a href="/search">Search Anime</a> |
+    <a href="/recommend">Recommendations</a> |
+    <a href="/stats">Statistics</a>
+</nav>
+
+<hr>
+
+<h1>Edit Anime</h1>
+
+<form method="POST">
+
+    <label>Title:</label><br>
+    <input type="text" name="title" value="{{ anime[1] }}" required><br><br>
+
+    <label>Genre:</label><br>
+    <input type="text" name="genre" value="{{ anime[2] }}"><br><br>
+
+    <label>Episodes:</label><br>
+    <input type="number" name="episodes" value="{{ anime[3] }}"><br><br>
+
+    <label>Rating:</label><br>
+    <input type="number" step="0.1" name="rating" value="{{ anime[4] }}"><br><br>
+
+    <label>Status:</label><br>
+    <select name="watch_status">
+        <option {% if anime[5] == "Watching" %}selected{% endif %}>Watching</option>
+        <option {% if anime[5] == "Completed" %}selected{% endif %}>Completed</option>
+        <option {% if anime[5] == "Plan to Watch" %}selected{% endif %}>Plan to Watch</option>
+        <option {% if anime[5] == "Paused" %}selected{% endif %}>Paused</option>
+        <option {% if anime[5] == "Dropped" %}selected{% endif %}>Dropped</option>
+    </select>
+
+    <br><br>
+
+    <button type="submit">Update Anime</button>
+
+</form>
+
+</body>
+</html>

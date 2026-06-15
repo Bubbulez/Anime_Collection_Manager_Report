@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Statistics</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/add">Add Anime</a> |
+    <a href="/list">View Collection</a> |
+    <a href="/search">Search Anime</a> |
+    <a href="/recommend">Recommendations</a> |
+    <a href="/stats">Statistics</a>
+</nav>
+
+<hr>
+
+<h1>Anime Statistics</h1>
+
+<p><strong>Total Anime:</strong> {{ total }}</p>
+
+<table border="1">
+    <tr>
+        <th>Watch Status</th>
+        <th>Count</th>
+    </tr>
+
+    {% for status in status_counts %}
+    <tr>
+        <td>{{ status[0] }}</td>
+        <td>{{ status[1] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

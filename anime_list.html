@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Anime Collection</title>
+</head>
+<body>
+
+<nav>
+    <a href="/">Home</a> |
+    <a href="/add">Add Anime</a> |
+    <a href="/list">View Collection</a> |
+    <a href="/search">Search Anime</a> |
+    <a href="/recommend">Recommendations</a> |
+    <a href="/stats">Statistics</a>
+</nav>
+
+<hr>
+
+<h1>Anime Collection</h1>
+
+<table border="1">
+    <tr>
+        <th>No.</th>
+        <th>Title</th>
+        <th>Genre</th>
+        <th>Episodes</th>
+        <th>Rating</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for anime in anime_list %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ anime[1] }}</td>
+        <td>{{ anime[2] }}</td>
+        <td>{{ anime[3] }}</td>
+        <td>{{ anime[4] }}</td>
+        <td>{{ anime[5] }}</td>
+        <td>
+            <a href="/edit/{{ anime[0] }}">Edit</a>
+            |
+            <a href="/delete/{{ anime[0] }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
